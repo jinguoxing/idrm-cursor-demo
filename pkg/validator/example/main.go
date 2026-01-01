@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/idrm/template/pkg/validator"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/validator"
 )
 
 // 示例结构体

@@ -20,11 +20,11 @@ api:
   
   ingress:
     enabled: true
-    className: nginx
+    className: idrm-cursor-demo
     host: api.example.com
     tls:
       enabled: false
-      secretName: api-tls
+      secretName: idrm-cursor-demo
   
   resources:
     requests:

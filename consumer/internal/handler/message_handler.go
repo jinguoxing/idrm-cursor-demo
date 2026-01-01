@@ -3,8 +3,8 @@ package handler
 import (
 	"context"
 
-	"github.com/idrm/template/consumer/internal/mq"
-	"github.com/idrm/template/consumer/internal/svc"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/mq"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

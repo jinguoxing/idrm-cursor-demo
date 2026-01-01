@@ -1,16 +1,16 @@
-Name: rpc
+Name: idrm-cursor-demo
 Host: 0.0.0.0
 Port: 9999
 
 # 日志配置
 Log:
-  ServiceName: rpc
+  ServiceName: idrm-cursor-demo
   Mode: console
   Level: info
 
 # 链路追踪
 Telemetry:
-  Name: rpc
+  Name: idrm-cursor-demo
   Endpoint: ""
   Sampler: 1.0
   Batcher: jaeger

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http/httptest"
 
-	"github.com/idrm/template/pkg/errorx"
-	"github.com/idrm/template/pkg/response"
-	"github.com/idrm/template/pkg/validator"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/errorx"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/response"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/validator"
 )
 
 type CreateUserRequest struct {

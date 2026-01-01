@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/idrm/template/api/internal/config"
-	"github.com/idrm/template/model/resource_catalog/category"
-	"github.com/idrm/template/pkg/db"
+	"github.com/jinguoxing/idrm-cursor-demo/api/internal/config"
+	"github.com/jinguoxing/idrm-cursor-demo/model/resource_catalog/category"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/db"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/zeromicro/go-zero/core/logx"

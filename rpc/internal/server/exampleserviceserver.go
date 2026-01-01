@@ -3,9 +3,9 @@ package server
 import (
 	"context"
 
-	"github.com/idrm/template/rpc/internal/logic"
-	"github.com/idrm/template/rpc/internal/svc"
-	"github.com/idrm/template/rpc/pb"
+	"github.com/jinguoxing/idrm-cursor-demo/rpc/internal/logic"
+	"github.com/jinguoxing/idrm-cursor-demo/rpc/internal/svc"
+	"github.com/jinguoxing/idrm-cursor-demo/rpc/pb"
 )
 
 // ExampleServiceServer 示例服务实现

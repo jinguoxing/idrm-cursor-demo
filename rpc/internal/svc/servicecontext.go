@@ -1,6 +1,6 @@
 package svc
 
-import "github.com/idrm/template/rpc/internal/config"
+import "github.com/jinguoxing/idrm-cursor-demo/rpc/internal/config"
 
 // ServiceContext RPC服务上下文
 type ServiceContext struct {

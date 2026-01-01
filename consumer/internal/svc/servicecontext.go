@@ -1,6 +1,6 @@
 package svc
 
-import "github.com/idrm/template/consumer/internal/config"
+import "github.com/jinguoxing/idrm-cursor-demo/consumer/internal/config"
 
 // ServiceContext Consumer服务上下文
 type ServiceContext struct {

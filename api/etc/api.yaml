@@ -1,10 +1,10 @@
-Name: idrm-api
+Name: idrm-cursor-demo
 Host: 0.0.0.0
 Port: 8888
 
 # Telemetry 配置
 Telemetry:
-  ServiceName: idrm-api
+  ServiceName: idrm-cursor-demo
   ServiceVersion: 1.0.0
   Environment: dev
   

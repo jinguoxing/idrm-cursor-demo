@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"github.com/idrm/template/rpc/internal/svc"
-	"github.com/idrm/template/rpc/pb"
+	"github.com/jinguoxing/idrm-cursor-demo/rpc/internal/svc"
+	"github.com/jinguoxing/idrm-cursor-demo/rpc/pb"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

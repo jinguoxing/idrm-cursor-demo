@@ -4,12 +4,12 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/idrm/template/api/internal/config"
-	"github.com/idrm/template/api/internal/handler"
-	"github.com/idrm/template/api/internal/svc"
-	"github.com/idrm/template/pkg/middleware"
-	"github.com/idrm/template/pkg/telemetry"
-	"github.com/idrm/template/pkg/validator"
+	"github.com/jinguoxing/idrm-cursor-demo/api/internal/config"
+	"github.com/jinguoxing/idrm-cursor-demo/api/internal/handler"
+	"github.com/jinguoxing/idrm-cursor-demo/api/internal/svc"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/middleware"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/telemetry"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/validator"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

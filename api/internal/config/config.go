@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/idrm/template/pkg/db"
-	"github.com/idrm/template/pkg/telemetry"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/db"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/telemetry"
 
 	"github.com/zeromicro/go-zero/rest"
 )

@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/idrm/template/consumer/internal/config"
-	"github.com/idrm/template/consumer/internal/handler"
-	"github.com/idrm/template/consumer/internal/mq"
-	"github.com/idrm/template/consumer/internal/svc"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/config"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/handler"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/mq"
+	"github.com/jinguoxing/idrm-cursor-demo/consumer/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/logx"

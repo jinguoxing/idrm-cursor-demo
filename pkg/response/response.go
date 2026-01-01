@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/idrm/template/pkg/errorx"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/errorx"
 )
 
 // HttpResponse 统一HTTP响应结构

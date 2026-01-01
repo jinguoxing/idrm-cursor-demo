@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/idrm/template/pkg/errorx"
-	"github.com/idrm/template/pkg/response"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/errorx"
+	"github.com/jinguoxing/idrm-cursor-demo/pkg/response"
 )
 
 // AuthMiddleware JWT认证中间件

@@ -1,6 +1,6 @@
 package config
 
-import "github.com/idrm/template/consumer/internal/mq"
+import "github.com/jinguoxing/idrm-cursor-demo/consumer/internal/mq"
 
 // Config Consumer服务配置
 type Config struct {

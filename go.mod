@@ -1,4 +1,4 @@
-module github.com/idrm/template
+module github.com/jinguoxing/idrm-cursor-demo
 
 go 1.24
 
