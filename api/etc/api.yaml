@@ -89,8 +89,34 @@ DB:
     PrepareStmt: true
     SingularTable: true
     DisableForeignKey: true
+  
+  # 认证数据库（用户认证功能使用）
+  Auth:
+    Host: ${DB_HOST:127.0.0.1}
+    Port: ${DB_PORT:3306}
+    Database: ${DB_NAME:idrm}
+    Username: ${DB_USER:root}
+    Password: ${DB_PASSWORD:root123}
+    Charset: utf8mb4
+    MaxIdleConns: 10
+    MaxOpenConns: 100
+    ConnMaxLifetime: 3600
+    ConnMaxIdleTime: 600
+    LogLevel: warn
+    SlowThreshold: 200
+    SkipDefaultTxn: true
+    PrepareStmt: true
+    SingularTable: true
+    DisableForeignKey: true
+
+# Redis配置
+Redis:
+  Host: ${REDIS_HOST:127.0.0.1}
+  Port: ${REDIS_PORT:6379}
+  Password: ${REDIS_PASSWORD:}
+  DB: ${REDIS_DB:0}
 
 # 认证配置
 Auth:
-  AccessSecret: your_secret_key_here
-  AccessExpire: 7200
+  AccessSecret: ${AUTH_ACCESS_SECRET:your_secret_key_here_change_in_production}
+  AccessExpire: 604800  # 7天（秒）

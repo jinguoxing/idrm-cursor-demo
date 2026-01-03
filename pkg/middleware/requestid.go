@@ -16,7 +16,8 @@ func RequestID() func(http.HandlerFunc) http.HandlerFunc {
 			// Get from header or generate new ID
 			requestID := r.Header.Get("X-Request-ID")
 			if requestID == "" {
-				requestID = uuid.New().String()
+				requestID = uuid.NewV7().String()
+
 			}
 
 			// Set to context

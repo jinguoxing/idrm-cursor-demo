@@ -15,10 +15,21 @@ services:
       - DB_NAME=${MYSQL_DATABASE:-idrm}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_DB=0
+      - AUTH_ACCESS_SECRET=${AUTH_ACCESS_SECRET:-your_secret_key_here_change_in_production}
     depends_on:
-      - mysql
-      - redis
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8888/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   rpc:
     build:
@@ -53,9 +64,16 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE:-idrm}
     volumes:
       - mysql_data:/var/lib/mysql
+      - ../../migrations:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root123}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   redis:
     image: redis:7.0-alpine

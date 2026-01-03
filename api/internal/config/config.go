@@ -23,6 +23,17 @@ type Config struct {
 
 		// 数据理解数据库
 		DataUnderstanding db.Config
+
+		// 认证数据库（用户认证功能使用）
+		Auth db.Config
+	}
+
+	// Redis配置
+	Redis struct {
+		Host     string
+		Port     int
+		Password string
+		DB       int
 	}
 
 	// 认证配置

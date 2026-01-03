@@ -172,7 +172,7 @@ type (
 
 @server(
     prefix: /api/v1/{module}
-    group: {feature}
+    group: {module}/{feature}
 )
 service project-api {
     @handler CreateXxx

@@ -1,0 +1,120 @@
+syntax = "v1"
+
+info (
+    title:   "用户认证API"
+    desc:    "用户注册、登录、密码重置、登录历史查询"
+    version: "v1"
+)
+
+import "../base.api"
+
+type (
+    // === 发送注册验证码 ===
+    SendRegisterCodeReq {
+        Mobile string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+    }
+    SendRegisterCodeResp {
+        Message string `json:"message"`
+    }
+
+    // === 用户注册 ===
+    RegisterReq {
+        Mobile   string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+        Password string `json:"password" validate:"required,min=8,max=32"`
+        Code     string `json:"code" validate:"required,len=6,regexp=^\\d{6}$"`
+    }
+    RegisterResp {
+        UserId string `json:"user_id"` // UUID v7
+    }
+
+    // === 用户登录 ===
+    LoginReq {
+        Mobile   string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+        Password string `json:"password" validate:"required"`
+    }
+    LoginResp {
+        Token string `json:"token"`
+    }
+
+    // === 发送密码重置验证码 ===
+    SendResetCodeReq {
+        Mobile string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+    }
+    SendResetCodeResp {
+        Message string `json:"message"`
+    }
+
+    // === 请求重置密码 ===
+    ResetPasswordRequestReq {
+        Mobile string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+    }
+    ResetPasswordRequestResp {
+        Message string `json:"message"`
+    }
+
+    // === 确认重置密码 ===
+    ResetPasswordConfirmReq {
+        Mobile   string `json:"mobile" validate:"required,len=11,regexp=^1[3-9]\\d{9}$"`
+        Code     string `json:"code" validate:"required,len=6,regexp=^\\d{6}$"`
+        Password string `json:"password" validate:"required,min=8,max=32"`
+    }
+    ResetPasswordConfirmResp {
+        Message string `json:"message"`
+    }
+
+    // === 查询登录历史 ===
+    LoginHistoryReq {
+        PageBaseInfo
+        StartTime string `form:"start_time,optional"` // 开始时间，格式：2006-01-02 15:04:05
+        EndTime   string `form:"end_time,optional"`     // 结束时间
+        IP        string `form:"ip,optional"`           // IP地址筛选
+    }
+    LoginHistoryItem {
+        Id         string `json:"id"` // UUID v7
+        IP         string `json:"ip"`
+        DeviceType string `json:"device_type"`
+        DeviceID   string `json:"device_id"`
+        UserAgent  string `json:"user_agent"`
+        LoginAt    string `json:"login_at"`
+    }
+    LoginHistoryResp {
+        Entries    []LoginHistoryItem `json:"entries"`
+        TotalCount int64              `json:"total_count"`
+    }
+)
+
+@server(
+    prefix: /api/v1/auth
+    group: auth
+    middleware: Auth
+)
+service idrm-api {
+    // 发送注册验证码
+    @handler SendRegisterCode
+    post /send-register-code (SendRegisterCodeReq) returns (SendRegisterCodeResp)
+
+    // 用户注册
+    @handler Register
+    post /register (RegisterReq) returns (RegisterResp)
+
+    // 用户登录
+    @handler Login
+    post /login (LoginReq) returns (LoginResp)
+
+    // 发送密码重置验证码
+    @handler SendResetCode
+    post /send-reset-code (SendResetCodeReq) returns (SendResetCodeResp)
+
+    // 请求重置密码（发送验证码）
+    @handler ResetPasswordRequest
+    post /reset-password/request (ResetPasswordRequestReq) returns (ResetPasswordRequestResp)
+
+    // 确认重置密码
+    @handler ResetPasswordConfirm
+    post /reset-password/confirm (ResetPasswordConfirmReq) returns (ResetPasswordConfirmResp)
+
+    // 查询登录历史
+    @handler LoginHistory
+    get /login-history (LoginHistoryReq) returns (LoginHistoryResp)
+}
+
